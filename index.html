@@ -1,27 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Formulario de Login</title>
+  <title>Botón de Hola Mundo</title>
 </head>
 <body>
-  <?php
-  if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['usuario'] === 'admin' && $_POST['contraseña'] === '123456') {
-    echo '<h2>Bienvenido, ' . $_POST['usuario'] . '!</h2>';
-  } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    echo '<p>Error: Usuario o contraseña incorrectos.</p>';
-  }
-  ?>
+  <h1>Botón de Hola Mundo</h1>
   
-  <h1>Iniciar sesión</h1>
+  <button onclick="mostrarMensaje()">Mostrar Mensaje</button>
   
-  <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-    <label for="usuario">Usuario:</label>
-    <input type="text" id="usuario" name="usuario" required><br><br>
-    
-    <label for="contraseña">Contraseña:</label>
-    <input type="password" id="contraseña" name="contraseña" required><br><br>
-    
-    <input type="submit" value="Iniciar sesión">
-  </form>
+  <script>
+    function mostrarMensaje() {
+      window.location.href = "mensaje.php";
+    }
+  </script>
 </body>
 </html>
