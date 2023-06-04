@@ -1,14 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Iniciar sesión</title>
+  <title>Formulario de Login</title>
 </head>
 <body>
-    <h1>Iniciar sesión</h1>
-    <form action="login.php" method="POST">
-        <input type="text" name="username" placeholder="Nombre de usuario" required><br>
-        <input type="password" name="password" placeholder="Contraseña" required><br>
-        <input type="submit" value="Iniciar sesión">
-    </form>
+  <?php
+  // Comprobamos si se ha enviado el formulario
+  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Obtenemos los datos enviados
+    $usuario = $_POST['usuario'];
+    $contraseña = $_POST['contraseña'];
+
+    // Validamos los datos (ejemplo simple)
+    if ($usuario === 'admin' && $contraseña === '123456') {
+      // Mostramos el mensaje de bienvenida
+      echo '<h2>Bienvenido, ' . $usuario . '!</h2>';
+    } else {
+      // Mostramos un mensaje de error
+      echo '<p>Error: Usuario o contraseña incorrectos.</p>';
+    }
+  }
+  ?>
+  
+  <h1>Iniciar sesión</h1>
+  
+  <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+    <label for="usuario">Usuario:</label>
+    <input type="text" id="usuario" name="usuario" required><br><br>
+    
+    <label for="contraseña">Contraseña:</label>
+    <input type="password" id="contraseña" name="contraseña" required><br><br>
+    
+    <input type="submit" value="Iniciar sesión">
+  </form>
 </body>
 </html>
