@@ -1,9 +1,9 @@
 <?php
 // Conectarse a la base de datos
-$servername = "localhost";
-$username = "usuario";
-$password = "contraseña";
-$dbname = "nombre_basedatos";
+$servername = "aws.connect.psdb.cloud";
+$username = "cgjjgcdlk73yr2k1hsj0";
+$password = "pscale_pw_dQwlLly1mQjAFJxgAsQejjPb3ji6cIHRUKXqzguVKNu";
+$dbname = "dblogin";
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Verificar la conexión
